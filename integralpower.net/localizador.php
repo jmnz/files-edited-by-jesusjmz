@@ -19,7 +19,7 @@ function prueba(){
    var e = document.getElementById("modelo_dropdown");
 alert(e.options[e.selectedIndex].value);
 
-	
+
 
 }
 
@@ -27,7 +27,7 @@ function showUser(str) {
     if (str == "-1") {
         document.getElementById("txtHint").innerHTML = "";
         return;
-    } else { 
+    } else {
         if (window.XMLHttpRequest) {
             // code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
@@ -51,10 +51,10 @@ function showUser(str) {
 function selectanho(marca_id){
 	if(marca_id!="-1"){
 		loadData('modelo',marca_id);
-		$("#anho_dropdown").html("<option value='-1'>Selecciona año</option>");	
+		$("#anho_dropdown").html("<option value='-1'>Selecciona año</option>");
 	}else{
 		$("#modelo_dropdown").html("<option value='-1'>Selecciona modelo</option>");
-		$("#anho_dropdown").html("<option value='-1'>Selecciona año</option>");		
+		$("#anho_dropdown").html("<option value='-1'>Selecciona año</option>");
 	}
 }
 
@@ -62,7 +62,7 @@ function selectmodelo(modelo_id){
 	if(modelo_id!="-1"){
 		loadData('anho',modelo_id);
 	}else{
-		$("#anho_dropdown").html("<option value='-1'>Selecciona año</option>");		
+		$("#anho_dropdown").html("<option value='-1'>Selecciona año</option>");
 	}
 }
 
@@ -77,8 +77,8 @@ function loadData(loadType,loadId){
 		cache: false,
 		success: function(result){
 			$("#"+loadType+"_loader").hide();
-			$("#"+loadType+"_dropdown").html("<option value='-1'>Selecciona</option>");  
-			$("#"+loadType+"_dropdown").append(result);  
+			$("#"+loadType+"_dropdown").html("<option value='-1'>Selecciona</option>");
+			$("#"+loadType+"_dropdown").append(result);
 		}
 	});
 }
@@ -88,16 +88,16 @@ function loadData(loadType,loadId){
 <body>
 
     <!--top section start-->
-    
 
-  
+
+
 
  <div id="wrap">
-		
+
 			<?php
 			if($checkmarca > 0){
 				?>
-				
+
                         <form id="myform" name="myform">
 							<select onchange="selectanho(this.options[this.selectedIndex].value)">
 								<option value="-1">Selecciona marca</option>
@@ -109,33 +109,33 @@ function loadData(loadType,loadId){
 								}
 								?>
 							</select>
-						
+
 							<select id="modelo_dropdown" onchange="selectmodelo(this.options[this.selectedIndex].value)">
 								<option value="-1">Selecciona modelo</option>
 							</select>
 							<span id="modelo_loader"></span>
-						
+
 							<select id="anho_dropdown" onchange="showUser(this.value)">
 								<option value="-1">Seleciona año</option>
 							</select>
-                            
+
                             
 							<span id="anho_loader"></span>
-						
-				
-                
+
+
+
                 </form>
-                              
-                
-                
-                
+
+
+
+
 				<?php
 			}else{
 				echo 'No marca Name Found';
 			}
 			?>
-		
-   
+
+
 
 <!--fotter section start-->
 <link rel="stylesheet" type="text/css" href="css/style.css" />
